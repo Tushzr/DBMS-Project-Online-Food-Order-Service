@@ -1,6 +1,18 @@
 # DBMS-Project-Online-Food-Order-Service
 
-#### The output is as follows
+### Description
+This is a simple Java online food ordering service application. </br>
+The main purpose of this project is to mimic the working of a commercial online food order app. </br>
+It consists of a login/create account page, a menu to choose food items, and options to display/delete items in wishlist/cart/orders. </br>
+
+### Applications/Development environment used
+<ul>
+  <li> Java(TM) SE Runtime Environment (build 17.0.1+12-LTS-39) </li>
+  <li> MySQL 8.0 </li>
+  <li> Microsoft Visual Studio Code v1.64.0
+</ul>
+
+#### The output is as follows:
 ```
 
 --------------------------------------------------
@@ -466,4 +478,64 @@ Enter choice: 5
 |                    3. Exit                     |
 --------------------------------------------------
 Enter choice: 3
+```
+
+#### Sample changes done to database while running the application:
+```
+mysql> SELECT * FROM USERS;
++----------+----------+
+| USERNAME | PASSWORD |
++----------+----------+
+| user1    | user1    |
+| user2    | user2    |
++----------+----------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT * FROM ITEMS;
++----------+-------+
+| ITEMNAME | PRICE |
++----------+-------+
+| ITEM 1   |   100 |
+| ITEM 2   |   150 |
+| ITEM 3   |   175 |
+| ITEM 4   |   225 |
++----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM USER1_WISHLIST;
++----+----------+------+-------+
+| ID | ITEMNAME | QTY  | PRICE |
++----+----------+------+-------+
+|  1 | ITEM 1   |    3 |   300 |
+|  2 | ITEM 2   |    3 |   450 |
+|  3 | ITEM 3   |    4 |   700 |
++----+----------+------+-------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT * FROM USER1_CART;
++----+----------+------+-------+
+| ID | ITEMNAME | QTY  | PRICE |
++----+----------+------+-------+
+|  6 | ITEM 1   |    3 |   300 |
+|  7 | ITEM 3   |    2 |   350 |
++----+----------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM USER1_ORDERS;
++----+----------+------+-------+
+| ID | ITEMNAME | QTY  | PRICE |
++----+----------+------+-------+
+|  4 | ITEM 4   |    2 |   450 |
+|  5 | ITEM 3   |    5 |   875 |
++----+----------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM USER2_WISHLIST;
+Empty set (0.01 sec)
+
+mysql> SELECT * FROM USER2_CART;
+Empty set (0.01 sec)
+
+mysql> SELECT * FROM USER2_ORDERS;
+Empty set (0.01 sec)
 ```
