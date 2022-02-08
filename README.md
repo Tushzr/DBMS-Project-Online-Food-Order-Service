@@ -12,6 +12,117 @@ It consists of a login/create account page, a menu to choose food items, and opt
   <li> Microsoft Visual Studio Code v1.64.0
 </ul>
 
+### Tables used
+<ul>
+  <li> <strong>USERS</strong>: Stores the username and password of each user of the application </li>
+  <li> <strong>ITEMS</strong>: Stores the details of all the food items that are avaiable for purchase </li>
+  <li> <strong>WISHLIST</strong>: Stores the items that the users would like to add to their wishlist </li>
+  <li> <strong>CART</strong>: Stores the items that the users are planning to purchase </li>
+  <li> <strong>ORDERS</strong>: Stores the orders that have been placed by the customer </li>
+</ul>
+
+Although in general there are 5 tables, each user will have their own tables for storing the items in wishlist, cart, orders. </br>
+These tables are named as username_WISHLIST, username_CART, username_ORDERS respectively. </br>
+As each new user is created, 3 new tables are created dynamically. </br>
+
+### Table structure
+Structure of <strong>USERS</strong>: 
+```
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| USERNAME | varchar(20) | YES  |     | NULL    |       |
+| PASSWORD | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+```
+Structure of <strong>ITEMS</strong>:
+```
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ITEMNAME | varchar(20) | YES  |     | NULL    |       |
+| PRICE    | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+```
+Structure of <strong>WISHLIST</strong>:
+```
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | NO   | PRI | NULL    |       |
+| ITEMNAME | varchar(20) | YES  |     | NULL    |       |
+| QTY      | int         | YES  |     | NULL    |       |
+| PRICE    | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+```
+Structure of <strong>CART</strong>:
+```
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | NO   | PRI | NULL    |       |
+| ITEMNAME | varchar(20) | YES  |     | NULL    |       |
+| QTY      | int         | YES  |     | NULL    |       |
+| PRICE    | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+```
+Structure of <strong>ORDERS</strong>:
+```
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | NO   | PRI | NULL    |       |
+| ITEMNAME | varchar(20) | YES  |     | NULL    |       |
+| QTY      | int         | YES  |     | NULL    |       |
+| PRICE    | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+```
+
+### Classes used in the program
+<ul>
+  <li>
+    <strong>Main</strong>: Program execution starts here. </br>
+    The USERS and ITEMS table is created here. </br>
+    User creation and login is done in this class. An object of class User is created everytime a new user is created. </br> 
+    This object is stored in an array of objects in Main that contains all the users. </br>
+  </li>
+  </br>
+  <li> 
+    <strong>User</strong>: Stores the username and password of each user of the application. </br>
+    Contains arrays of objects to store items (objects) that are to be stored in Wishlist, Cart, or Orders. </br>
+    Provides methods view and delete items from the user's wishlist/cart/orders. </br>
+  </li>
+  </br>
+  <li> <strong>Item</strong>: Stores the details of all the food items that are avaiable for purchase. </br>
+       An object of this class is stored in the ArrayList present in Wishlist/Cart/Order classes. </br>
+  </li>
+  </br>
+  <li> <strong>Wishlist</strong>: Stores the items that the users would like to add to their wishlist. </br>
+       Contains an ArrayList that stores objects of Item class. </br>
+  </li>
+  </br>
+  <li> <strong>Cart</strong>: Stores the items that the users are planning to purchase. </br>
+       Contains an ArrayList that stores objects of Item class. </br>
+  </li>
+  </br>
+  <li> <strong>Order</strong>: Stores the orders that have been placed by the customer. </br>
+       Contains an ArrayList that stores objects of Item class. </br>
+  </li>
+</ul>
+
+### Program flow
+<ol>
+  <li> Create user </li>
+  <li> Login using username and password </li>
+  <li> Display menu for choosing food items </li>
+  <li> Choose items to add to cart/wishlist </li>
+  <li> Get quanitity of item chosen </li>
+  <li> Calculate total </li>
+  <li> Add chosen items to cart/wishlist </li>
+  <li> View or delete items from cart/wishlist </li>
+  <li> Place/delete order </li>
+</ol>
+
 #### The output is as follows:
 ```
 
